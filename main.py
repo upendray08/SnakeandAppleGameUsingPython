@@ -35,7 +35,7 @@ class Snake:
         self.block = pygame.image.load('resources/block.jpg').convert()
         self.x = [size]*length
         self.y = [size]*length
-        self.direction = "up"
+        self.direction = "right"
     # logic of increasing length of snake
 
     def increase_length(self):
@@ -134,11 +134,11 @@ class Game:
         for i in range(3, self.snake.length):
             if self.is_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 self.play_sound("crash")
-                raise "Game Over"
+                raise Exception("Game Over")
 
         # snake boundaries error problem
         if (self.snake.x[0] < 0 or self.snake.x[0] > width) or (self.snake.y[0] < 0 or self.snake.y[0] > height):
-            raise "hit the boundry error"
+            raise Exception("Hit the Boundaries ")
 
     def reset_game(self):
         self.snake = Snake(self.surface, 1)
@@ -196,6 +196,7 @@ class Game:
                 if not pause:
                     self.play()
             except Exception as e:
+                # print(e)
                 self.show_game_over()
                 pause = True
                 self.reset_game()
