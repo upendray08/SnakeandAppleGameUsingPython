@@ -200,12 +200,11 @@ class Game:
                 pause = True
                 self.reset_game()
 
-            if self.snake.length-1 <= 10:
+            if self.snake.length-1 <10:
                 time.sleep(0.3)
-            elif self.snake.length-1 > 15 and self.snake.length-1 < 25:
+            elif self.snake.length-1 > 10:
                 time.sleep(0.2)
-            elif self.snake.length-1 > 30:
-                time.sleep(0.1)
+            
 
 
 if __name__ == "__main__":  # it is simple help us to create a module
